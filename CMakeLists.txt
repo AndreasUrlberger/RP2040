@@ -4,6 +4,15 @@ if(WIN32)
 else()
     set(USERHOME $ENV{HOME})
 endif()
+
+# My config
+set(ENV{PICO_SDK_FETCH_FROM_GIT} "on")
+set(ENV{PICO_TOOLCHAIN_PATH} "/usr")
+set(PICO_TOOLCHAIN_PATH "/usr")
+set(ENV{CMAKE_C_COMPILER} "/usr/bin/arm-none-eabi-gcc")
+set(ENV{CMAKE_CXX_COMPILER} "/usr/bin/arm-none-eabi-g++")
+
+
 set(sdkVersion 2.1.1)
 set(toolchainVersion 14_2_Rel1)
 set(picotoolVersion 2.1.1)
@@ -59,6 +68,9 @@ endif()
 
 project(grblHAL)
 pico_sdk_init()
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")  
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3") 
 
 if(AddMyPlugin)
     add_executable(grblHAL
