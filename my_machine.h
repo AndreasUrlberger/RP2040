@@ -21,7 +21,7 @@
 
 // NOTE: Only one board may be enabled!
 // If none is enabled pin mappings from generic_map.h will be used.
-//#define BOARD_PICO_CNC
+#define BOARD_PICO_CNC
 //#define BOARD_PICOBOB
 //#define BOARD_PICOBOB_G540
 //#define BOARD_PICOBOB_DLX
@@ -102,8 +102,8 @@
 // of axes can be enabled here.
 //#define X_GANGED             1
 //#define X_AUTO_SQUARE        1
-//#define Y_GANGED             1
-//#define Y_AUTO_SQUARE        1
+#define Y_GANGED             1
+#define Y_AUTO_SQUARE        1
 //#define Z_GANGED             1
 //#define Z_AUTO_SQUARE        1
 // For ganged axes the limit switch input (if available) can be configured to act as a max travel limit switch.

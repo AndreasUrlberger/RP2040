@@ -1,5 +1,12 @@
 cmake_minimum_required(VERSION 3.13)
 
+# My config
+set(ENV{PICO_SDK_FETCH_FROM_GIT} "on")
+set(ENV{PICO_TOOLCHAIN_PATH} "/usr")
+set(PICO_TOOLCHAIN_PATH "/usr")
+set(ENV{CMAKE_C_COMPILER} "/usr/bin/arm-none-eabi-gcc")
+set(ENV{CMAKE_CXX_COMPILER} "/usr/bin/arm-none-eabi-g++")
+
 option(ADD_HPGL "Add HPGL plugin" OFF)
  # Note: WiFi and Ethernet cannot be enabled at the same time!
 option(ADD_WIFI "Add WiFi networking" OFF)
@@ -45,6 +52,9 @@ endif()
 
 project(grblHAL)
 pico_sdk_init()
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")  
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3") 
 
 if(AddMyPlugin)
     add_executable(grblHAL
